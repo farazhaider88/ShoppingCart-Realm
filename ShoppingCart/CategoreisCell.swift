@@ -9,8 +9,10 @@
 import UIKit
 
 class CategoreisCell: UITableViewCell {
+    
     @IBOutlet weak var categoryPicture: UIImageView!
     @IBOutlet weak var categoryName: UILabel!
+    @IBOutlet weak var categoryDescription: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

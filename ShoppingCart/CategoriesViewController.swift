@@ -10,9 +10,11 @@ import UIKit
 import RealmSwift
 
 class CategoriesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-  
+    
     @IBOutlet weak var categoriesTblView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     var categories:Results<Category>?
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,8 @@ class CategoriesViewController: UIViewController,UITableViewDataSource,UITableVi
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         print(documentsPath)
         categoriesTblView.separatorStyle = .none
+        self.loadCategories()
+        searchBar.delegate = self
         // Do any additional setup after loading the view.
     }
     override func didReceiveMemoryWarning() {
@@ -34,50 +38,76 @@ class CategoriesViewController: UIViewController,UITableViewDataSource,UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CategoreisCell
-        cell.categoryName.text = "tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:tableView.dequeueReusableCell(withIdentifier:"
+        if let category = categories?[indexPath.row]{
+            cell.categoryName.text = category.categoryName
+            cell.categoryDescription.text = category.categoryDescriton
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-
+    
     @IBAction func addCategoryButtonClicked(_ sender: Any) {
+        
         var inputTextField = UITextField()
-        var alert = UIAlertController(title: "", message: "Do you want to add Category?", preferredStyle: .alert)
+        var inputTextFieldDescription = UITextField()
+        
+        let alert = UIAlertController(title: "", message: "Do you want to add Category?", preferredStyle: .alert)
+        
         let addAction = UIAlertAction(title: "Add Category", style: .default) { (addAction) in
-            print("add clicked")
-            print("\(inputTextField.text)")
+            let category = Category()
+            category.categoryName = inputTextField.text!
+            category.categoryDescriton = inputTextFieldDescription.text!
+            self.saveCategories(category: category)
         }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { (cancelAction) in
             print("Cancel clicked")
         }
+        
         alert.addTextField { (alertTextField) in
-            print("textfield")
+            alertTextField.placeholder = "Category Name"
             inputTextField = alertTextField
         }
+        
+        alert.addTextField { (alertDescTextField) in
+            alertDescTextField.placeholder = "Category Description"
+            inputTextFieldDescription = alertDescTextField
+        }
+        
         alert.addAction(addAction)
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
     }
     
-    func saveCategories() {
-        
+    func saveCategories(category:Category) {
+        do{
+            try realm.write {
+                realm.add(category)
+            }
+        }catch{
+           print("Error in saving category to raelm")
+        }
+        categoriesTblView.reloadData()
     }
     
     func loadCategories() {
-        
+        categories = realm.objects(Category.self)
+        categoriesTblView.reloadData()
     }
     
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension CategoriesViewController : UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("UISearchBar, textDidChange")
     }
-    */
-
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBarSearchButtonClicked")
+    }
 }
