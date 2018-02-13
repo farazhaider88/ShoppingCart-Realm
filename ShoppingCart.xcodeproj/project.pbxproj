@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A0CD9932139F4BB0B5C3E915 /* Pods_ShoppingCart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BAD3467DE04194C13909D16 /* Pods_ShoppingCart.framework */; };
+		D09C297D20335D3900222505 /* CategoreisCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C297C20335D3900222505 /* CategoreisCell.swift */; };
 		D0D406772030C9A700511AC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D406762030C9A700511AC9 /* AppDelegate.swift */; };
 		D0D4067C2030C9A700511AC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D4067A2030C9A700511AC9 /* Main.storyboard */; };
 		D0D4067E2030C9A700511AC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0D4067D2030C9A700511AC9 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		1BAD3467DE04194C13909D16 /* Pods_ShoppingCart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppingCart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45EA8134695CA82F36E1515A /* Pods-ShoppingCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart.debug.xcconfig"; sourceTree = "<group>"; };
 		C5EB572FCF6A58A2933562BA /* Pods-ShoppingCart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart.release.xcconfig"; sourceTree = "<group>"; };
+		D09C297C20335D3900222505 /* CategoreisCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoreisCell.swift; sourceTree = "<group>"; };
 		D0D406732030C9A700511AC9 /* ShoppingCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D406762030C9A700511AC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D4067B2030C9A700511AC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				D0D406762030C9A700511AC9 /* AppDelegate.swift */,
 				D0D4068C2030D48800511AC9 /* CategoriesViewController.swift */,
+				D09C297C20335D3900222505 /* CategoreisCell.swift */,
 				D0D4068E2030D49200511AC9 /* SubCategoriesViewController.swift */,
 				D0D406902030D4A700511AC9 /* ShoppingCartViewController.swift */,
 				D0D4067A2030C9A700511AC9 /* Main.storyboard */,
@@ -234,6 +237,7 @@
 				D0D4068B2030D2EC00511AC9 /* SubCategory.swift in Sources */,
 				D0D406772030C9A700511AC9 /* AppDelegate.swift in Sources */,
 				D0D406912030D4A700511AC9 /* ShoppingCartViewController.swift in Sources */,
+				D09C297D20335D3900222505 /* CategoreisCell.swift in Sources */,
 				D0D4068D2030D48800511AC9 /* CategoriesViewController.swift in Sources */,
 				D0D4068F2030D49200511AC9 /* SubCategoriesViewController.swift in Sources */,
 				D0D406892030D2DF00511AC9 /* Category.swift in Sources */,

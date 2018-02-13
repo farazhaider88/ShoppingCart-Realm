@@ -10,94 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Categories-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="CategoriesViewController" customModule="ShoppingCart" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eo4-g9-5uw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Eo4-g9-5uw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="51G-I7-tuf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Eo4-g9-5uw" secondAttribute="bottom" id="LmN-Tb-L8D"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Eo4-g9-5uw" secondAttribute="trailing" id="dxu-0n-saL"/>
-                            <constraint firstItem="Eo4-g9-5uw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="iD4-FZ-dHI"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Categories" id="Ci0-I7-4pw"/>
-                    <connections>
-                        <segue destination="Ed0-JV-PVT" kind="show" id="ZWp-GK-tyZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1188" y="44"/>
-        </scene>
-        <!--Sub Category-->
-        <scene sceneID="NQC-Ox-NXW">
-            <objects>
-                <viewController title="Sub Category" id="Ed0-JV-PVT" customClass="SubCategoriesViewController" customModule="ShoppingCart" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YXB-x8-6pE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3ny-En-PpK">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="yvb-AL-VMY" firstAttribute="bottom" secondItem="3ny-En-PpK" secondAttribute="bottom" id="59f-CO-glB"/>
-                            <constraint firstItem="yvb-AL-VMY" firstAttribute="trailing" secondItem="3ny-En-PpK" secondAttribute="trailing" id="76Y-xZ-BtN"/>
-                            <constraint firstItem="3ny-En-PpK" firstAttribute="leading" secondItem="yvb-AL-VMY" secondAttribute="leading" id="N7F-Qt-QBp"/>
-                            <constraint firstItem="3ny-En-PpK" firstAttribute="top" secondItem="yvb-AL-VMY" secondAttribute="top" id="kpj-fd-lD9"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="yvb-AL-VMY"/>
-                    </view>
-                    <connections>
-                        <segue destination="THF-xF-a1Y" kind="show" id="M6i-tH-lrL"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ceU-jw-iwe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1911" y="42"/>
-        </scene>
-        <!--Shopping Cart-->
-        <scene sceneID="N76-lk-KuD">
-            <objects>
-                <viewController title="Shopping Cart" id="THF-xF-a1Y" customClass="ShoppingCartViewController" customModule="ShoppingCart" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KJZ-YY-myI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NhA-46-JT5">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="NhA-46-JT5" firstAttribute="leading" secondItem="zqf-bz-M0X" secondAttribute="leading" id="HBm-td-wMD"/>
-                            <constraint firstItem="NhA-46-JT5" firstAttribute="top" secondItem="zqf-bz-M0X" secondAttribute="top" id="WHN-Fj-a4M"/>
-                            <constraint firstItem="zqf-bz-M0X" firstAttribute="trailing" secondItem="NhA-46-JT5" secondAttribute="trailing" id="Wak-vU-dUm"/>
-                            <constraint firstItem="zqf-bz-M0X" firstAttribute="bottom" secondItem="NhA-46-JT5" secondAttribute="bottom" id="p9O-OK-e37"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="zqf-bz-M0X"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CDb-WS-ZfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2729" y="50"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="kRY-9v-Cu1">
             <objects>
@@ -110,12 +22,90 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7q7-MO-BQZ"/>
+                        <segue destination="8G5-Kw-0UI" kind="relationship" relationship="rootViewController" id="LFJ-3j-k1n"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJw-np-BiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="372.80000000000001" y="60.26986506746627"/>
+        </scene>
+        <!--Categories-->
+        <scene sceneID="ywh-Z2-UnP">
+            <objects>
+                <viewController id="8G5-Kw-0UI" customClass="CategoriesViewController" customModule="ShoppingCart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pil-6H-mkF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eup-2N-gAr">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="c0K-xp-i9I" customClass="CategoreisCell" customModule="ShoppingCart" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c0K-xp-i9I" id="S6m-0Y-C3M">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OXX-sb-bdX">
+                                                    <rect key="frame" x="0.0" y="-3.5" width="50" height="50.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="dM9-S5-uLH"/>
+                                                        <constraint firstAttribute="height" constant="50" id="rjp-8m-hBQ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgZ-ic-om3">
+                                                    <rect key="frame" x="60" y="0.0" width="315" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EgZ-ic-om3" firstAttribute="leading" secondItem="OXX-sb-bdX" secondAttribute="trailing" constant="10" id="P4B-WB-djo"/>
+                                                <constraint firstAttribute="trailing" secondItem="EgZ-ic-om3" secondAttribute="trailing" id="Rdm-Du-DGQ"/>
+                                                <constraint firstItem="OXX-sb-bdX" firstAttribute="leading" secondItem="S6m-0Y-C3M" secondAttribute="leading" id="XDY-HO-bmd"/>
+                                                <constraint firstItem="EgZ-ic-om3" firstAttribute="top" secondItem="S6m-0Y-C3M" secondAttribute="top" id="g7i-xX-hec"/>
+                                                <constraint firstItem="OXX-sb-bdX" firstAttribute="centerY" secondItem="EgZ-ic-om3" secondAttribute="centerY" id="jHZ-PW-1TI"/>
+                                                <constraint firstAttribute="bottom" secondItem="EgZ-ic-om3" secondAttribute="bottom" id="yyU-Wb-I2h"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryName" destination="EgZ-ic-om3" id="NTD-pA-Pl9"/>
+                                            <outlet property="categoryPicture" destination="OXX-sb-bdX" id="y6g-Fl-2gY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8G5-Kw-0UI" id="0HN-9i-b4G"/>
+                                    <outlet property="delegate" destination="8G5-Kw-0UI" id="4DP-mt-R6f"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qbW-7t-zJ8" firstAttribute="trailing" secondItem="Eup-2N-gAr" secondAttribute="trailing" id="8KU-GQ-juc"/>
+                            <constraint firstItem="qbW-7t-zJ8" firstAttribute="bottom" secondItem="Eup-2N-gAr" secondAttribute="bottom" id="dUB-eJ-v3k"/>
+                            <constraint firstItem="Eup-2N-gAr" firstAttribute="top" secondItem="qbW-7t-zJ8" secondAttribute="top" id="eLo-wp-NDP"/>
+                            <constraint firstItem="Eup-2N-gAr" firstAttribute="leading" secondItem="qbW-7t-zJ8" secondAttribute="leading" id="lHl-mb-EjG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qbW-7t-zJ8"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Categories" id="Dnp-MH-hBP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FpH-Fb-Lwx">
+                            <connections>
+                                <action selector="addCategoryButtonClicked:" destination="8G5-Kw-0UI" id="Z1k-1s-lHw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="categoriesTblView" destination="Eup-2N-gAr" id="MbW-xV-Lgo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SAe-Bs-Ig3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1151" y="60"/>
         </scene>
     </scenes>
 </document>
