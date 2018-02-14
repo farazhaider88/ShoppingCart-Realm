@@ -38,11 +38,20 @@ class CategoriesViewController: UIViewController,UITableViewDataSource,UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CategoreisCell
+        
         if let category = categories?[indexPath.row]{
+        
             cell.categoryName.text = category.categoryName
             cell.categoryDescription.text = category.categoryDescriton
             cell.backgroundColor = UIColor(hexString:category.categoryColor)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm - MMM dd, yyyy"
+            let todaysDate = dateFormatter.string(from: category.dateCategoryAdded!)
+            
+            cell.categoryAddedDate.text = todaysDate
         }
         return cell
     }
@@ -63,6 +72,7 @@ class CategoriesViewController: UIViewController,UITableViewDataSource,UITableVi
             category.categoryName = inputTextField.text!
             category.categoryDescriton = inputTextFieldDescription.text!
             category.categoryColor = UIColor.randomFlat.hexValue()
+            category.dateCategoryAdded = Date()
             self.saveCategories(category: category)
         }
         
@@ -114,16 +124,12 @@ extension CategoriesViewController : UISearchBarDelegate{
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
-        }else
-        {
-            categories = categories?.filter("categoryName CONTAINS[CD] %@",searchBar.text!)
-            categoriesTblView.reloadData()
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("searchBarSearchButtonClicked")
-        categories = categories?.filter("categoryName CONTAINS[CD] %@",searchBar.text!)
+        categories = categories?.filter("categoryName CONTAINS[cd] %@",searchBar.text!)
         categoriesTblView.reloadData()
     }
 }

@@ -13,5 +13,6 @@ class Category: Object {
     @objc dynamic var categoryName : String = ""
     @objc dynamic var categoryDescriton : String = ""
     @objc dynamic var categoryColor : String = ""
+    @objc dynamic var dateCategoryAdded : Date?
     var parentSubCategory = LinkingObjects(fromType: SubCategory.self, property: "category")
 }

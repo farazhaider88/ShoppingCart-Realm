@@ -67,8 +67,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9u-gB-OwX">
-                                                    <rect key="frame" x="60" y="0.0" width="305" height="43"/>
+                                                    <rect key="frame" x="60" y="0.0" width="263" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4G-eY-AHf">
+                                                    <rect key="frame" x="323" y="11.5" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -77,15 +83,18 @@
                                                 <constraint firstItem="OXX-sb-bdX" firstAttribute="centerY" secondItem="S6m-0Y-C3M" secondAttribute="centerY" id="6ey-tT-ReD"/>
                                                 <constraint firstItem="G9u-gB-OwX" firstAttribute="leading" secondItem="EgZ-ic-om3" secondAttribute="leading" id="7kT-Fj-yii"/>
                                                 <constraint firstItem="G9u-gB-OwX" firstAttribute="top" secondItem="EgZ-ic-om3" secondAttribute="bottom" id="Aa0-qL-9oa"/>
+                                                <constraint firstItem="E4G-eY-AHf" firstAttribute="trailing" secondItem="EgZ-ic-om3" secondAttribute="trailing" id="HbP-4M-79X"/>
                                                 <constraint firstItem="EgZ-ic-om3" firstAttribute="leading" secondItem="OXX-sb-bdX" secondAttribute="trailing" constant="10" id="P4B-WB-djo"/>
                                                 <constraint firstAttribute="trailing" secondItem="EgZ-ic-om3" secondAttribute="trailing" constant="10" id="Rdm-Du-DGQ"/>
                                                 <constraint firstItem="OXX-sb-bdX" firstAttribute="leading" secondItem="S6m-0Y-C3M" secondAttribute="leading" id="XDY-HO-bmd"/>
                                                 <constraint firstItem="EgZ-ic-om3" firstAttribute="top" secondItem="S6m-0Y-C3M" secondAttribute="top" id="g7i-xX-hec"/>
-                                                <constraint firstItem="G9u-gB-OwX" firstAttribute="trailing" secondItem="EgZ-ic-om3" secondAttribute="trailing" id="lIm-e7-75i"/>
+                                                <constraint firstItem="E4G-eY-AHf" firstAttribute="leading" secondItem="G9u-gB-OwX" secondAttribute="trailing" id="iSC-kN-yzn"/>
+                                                <constraint firstItem="E4G-eY-AHf" firstAttribute="centerY" secondItem="G9u-gB-OwX" secondAttribute="centerY" id="lmc-OV-LXj"/>
                                                 <constraint firstAttribute="bottom" secondItem="G9u-gB-OwX" secondAttribute="bottom" id="mON-rt-ngk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="categoryAddedDate" destination="E4G-eY-AHf" id="6VS-ar-QPR"/>
                                             <outlet property="categoryDescription" destination="G9u-gB-OwX" id="gs7-GO-soS"/>
                                             <outlet property="categoryName" destination="EgZ-ic-om3" id="NTD-pA-Pl9"/>
                                             <outlet property="categoryPicture" destination="OXX-sb-bdX" id="y6g-Fl-2gY"/>
@@ -121,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAe-Bs-Ig3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="60"/>
+            <point key="canvasLocation" x="1149.5999999999999" y="59.820089955022496"/>
         </scene>
     </scenes>
     <resources>
