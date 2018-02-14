@@ -57,7 +57,7 @@ class CategoriesViewController: UIViewController,UITableViewDataSource,UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "showSubCategory", sender: self)
     }
     
     @IBAction func addCategoryButtonClicked(_ sender: Any) {
