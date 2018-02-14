@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class CategoriesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -41,6 +42,7 @@ class CategoriesViewController: UIViewController,UITableViewDataSource,UITableVi
         if let category = categories?[indexPath.row]{
             cell.categoryName.text = category.categoryName
             cell.categoryDescription.text = category.categoryDescriton
+            cell.backgroundColor = UIColor(hexString:category.categoryColor)
         }
         return cell
     }
@@ -60,6 +62,7 @@ class CategoriesViewController: UIViewController,UITableViewDataSource,UITableVi
             let category = Category()
             category.categoryName = inputTextField.text!
             category.categoryDescriton = inputTextFieldDescription.text!
+            category.categoryColor = UIColor.randomFlat.hexValue()
             self.saveCategories(category: category)
         }
         
@@ -105,9 +108,22 @@ extension CategoriesViewController : UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("UISearchBar, textDidChange")
+        if (searchBar.text?.count)! <= 0
+        {
+            loadCategories()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }else
+        {
+            categories = categories?.filter("categoryName CONTAINS[CD] %@",searchBar.text!)
+            categoriesTblView.reloadData()
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("searchBarSearchButtonClicked")
+        categories = categories?.filter("categoryName CONTAINS[CD] %@",searchBar.text!)
+        categoriesTblView.reloadData()
     }
 }
