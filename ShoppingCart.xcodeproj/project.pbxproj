@@ -60,6 +60,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D0173A782037317000AC64D1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D09C297C20335D3900222505 /* CategoreisCell.swift */,
+				D02E49C52034CE2300881226 /* SubCategoriesCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D0173A792037317D00AC64D1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0D4068C2030D48800511AC9 /* CategoriesViewController.swift */,
+				D0D4068E2030D49200511AC9 /* SubCategoriesViewController.swift */,
+				D0D406902030D4A700511AC9 /* ShoppingCartViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D0173A7A2037319900AC64D1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D0D406882030D2DF00511AC9 /* Category.swift */,
+				D0D4068A2030D2EC00511AC9 /* SubCategory.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D0D4066A2030C9A700511AC9 = {
 			isa = PBXGroup;
 			children = (
@@ -82,17 +110,13 @@
 			isa = PBXGroup;
 			children = (
 				D0D406762030C9A700511AC9 /* AppDelegate.swift */,
-				D0D4068C2030D48800511AC9 /* CategoriesViewController.swift */,
-				D09C297C20335D3900222505 /* CategoreisCell.swift */,
-				D0D4068E2030D49200511AC9 /* SubCategoriesViewController.swift */,
-				D02E49C52034CE2300881226 /* SubCategoriesCell.swift */,
-				D0D406902030D4A700511AC9 /* ShoppingCartViewController.swift */,
+				D0173A792037317D00AC64D1 /* ViewControllers */,
+				D0173A782037317000AC64D1 /* Cells */,
+				D0173A7A2037319900AC64D1 /* Models */,
 				D0D4067A2030C9A700511AC9 /* Main.storyboard */,
 				D0D4067D2030C9A700511AC9 /* Assets.xcassets */,
 				D0D4067F2030C9A700511AC9 /* LaunchScreen.storyboard */,
 				D0D406822030C9A700511AC9 /* Info.plist */,
-				D0D406882030D2DF00511AC9 /* Category.swift */,
-				D0D4068A2030D2EC00511AC9 /* SubCategory.swift */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
