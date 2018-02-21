@@ -223,7 +223,11 @@
                         <viewLayoutGuide key="safeArea" id="6K6-5C-HKn"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sub Categories" id="zbp-pS-5Zc">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="iwa-6i-4kn"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="iwa-6i-4kn">
+                            <connections>
+                                <action selector="addSubcategories:" destination="fEt-It-eiZ" id="jwX-Vc-Gjb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="subCategoryTblView" destination="jyH-pX-BUK" id="pmk-aw-tvV"/>

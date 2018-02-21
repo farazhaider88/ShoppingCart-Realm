@@ -60,6 +60,16 @@ class CategoriesViewController: UIViewController,UITableViewDataSource,UITableVi
         performSegue(withIdentifier: "showSubCategory", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSubCategory"{
+            let controller = segue.destination as! SubCategoriesViewController
+            if let indexPath = categoriesTblView.indexPathForSelectedRow {
+                controller.selectedCategory = categories?[indexPath.row]
+            }
+            
+        }
+    }
+    
     @IBAction func addCategoryButtonClicked(_ sender: Any) {
         
         var inputTextField = UITextField()

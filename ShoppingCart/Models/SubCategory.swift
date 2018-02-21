@@ -15,6 +15,6 @@ class SubCategory: Object {
     @objc dynamic var subCategoryPrice : Int = 0
     @objc dynamic var isSubCategoryFavourite : Bool = false
     @objc dynamic var quantity : Int = 0
-    
-    var category = List<Category>()
+    var parentSubCategory = LinkingObjects(fromType: Category.self, property: "category")
 }
+

@@ -14,20 +14,26 @@ class SubCategoriesViewController: UIViewController,UITableViewDataSource,UITabl
     @IBOutlet weak var subCategoryTblView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     var subCategories:Results<SubCategory>?
+    var selectedCategory:Category?{
+        didSet{
+            loadSubCategories()
+        }
+    }
+    
     let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        subCategoryTblView.rowHeight = UITableViewAutomaticDimension
-//        subCategoryTblView.estimatedRowHeight = 100
+        //        subCategoryTblView.rowHeight = UITableViewAutomaticDimension
+        //        subCategoryTblView.estimatedRowHeight = 100
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         print(documentsPath)
         subCategoryTblView.separatorStyle = .none
-//        self.loadCategories()
-//        searchBar.delegate = self
+        //        self.loadCategories()
+        //        searchBar.delegate = self
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,9 +47,12 @@ class SubCategoriesViewController: UIViewController,UITableViewDataSource,UITabl
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SubCategoriesCell
         cell.delegate = self
-        cell.subCategoryName.text = "ABC"
-        cell.subCategoryPrice.text = "13 AED"
-        cell.subcategoryQuantity.text = "0"
+        if let items = subCategories?[indexPath.row]{
+            cell.subCategoryName.text = items.subCategoryName
+            cell.subCategoryPrice.text = String(items.subCategoryPrice)
+            cell.subcategoryQuantity.text = String(items.quantity)
+        }
+        
         
         return cell
     }
@@ -51,18 +60,79 @@ class SubCategoriesViewController: UIViewController,UITableViewDataSource,UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 105
     }
-
-    func stepperValueUpdated(steperValue: Double) {
+    
+    func stepperValueUpdated(steperValue: Int, forSubCategoriesCell: SubCategoriesCell, isIncreasing: Bool) {
         print("\(steperValue)")
+        do{
+            try self.realm.write {
+                var indexPath  = subCategoryTblView .indexPath(for: forSubCategoriesCell)
+                if let items = self.subCategories?[(indexPath?.row)!]{
+                    if(isIncreasing)
+                    {
+                        items.quantity = items.quantity+1
+                    }else{
+                        items.quantity = items.quantity-1
+                    }
+                    
+//                    items.subCategoryPrice = items.subCategoryPrice * items.quantity
+                }
+            }
+        }catch{
+            print("Error in saving subCategories to raelm")
+        }
+        self.subCategoryTblView.reloadData()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func addSubcategories(_ sender: Any) {
+        var inputTextField = UITextField()
+        var inputTextFieldDescription = UITextField()
+        
+        let alert = UIAlertController(title: "", message: "Do you want to add Category?", preferredStyle: .alert)
+        
+        let addAction = UIAlertAction(title: "Add Category", style: .default) { (addAction) in
+            
+            if let categories = self.selectedCategory{
+                do{
+                    try self.realm.write {
+                        let subCategory = SubCategory()
+                        subCategory.subCategoryName = inputTextField.text!
+                        subCategory.subCategoryDescriton = inputTextFieldDescription.text!
+                        subCategory.subCategoryPrice = Int(arc4random_uniform(20) + 100)
+                        subCategory.isSubCategoryFavourite = false
+                        subCategory.quantity = 1
+                        categories.category.append(subCategory)
+                    }
+                }catch{
+                    print("Error in saving subCategories to raelm")
+                }
+                self.subCategoryTblView.reloadData()
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { (cancelAction) in
+            print("Cancel clicked")
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "SubCategory Name"
+            inputTextField = alertTextField
+        }
+        
+        alert.addTextField { (alertDescTextField) in
+            alertDescTextField.placeholder = "SubCategory Description"
+            inputTextFieldDescription = alertDescTextField
+        }
+        
+        alert.addAction(addAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
-    */
-
+    
+    
+    func loadSubCategories() {
+        subCategories = selectedCategory?.category.sorted(byKeyPath: "subCategoryName")
+    }
+    
 }
+
