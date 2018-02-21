@@ -61,20 +61,21 @@ class SubCategoriesViewController: UIViewController,UITableViewDataSource,UITabl
         return 105
     }
     
-    func stepperValueUpdated(steperValue: Int, forSubCategoriesCell: SubCategoriesCell, isIncreasing: Bool) {
-        print("\(steperValue)")
+    
+    func quantityValueChanged(forSubCategoriesCell: SubCategoriesCell, isIncreasing: Bool) {
         do{
             try self.realm.write {
                 var indexPath  = subCategoryTblView .indexPath(for: forSubCategoriesCell)
                 if let items = self.subCategories?[(indexPath?.row)!]{
-                    if(isIncreasing)
+                    if (items.quantity == 1 && !isIncreasing){
+                        return
+                    }
+                    else if(isIncreasing)
                     {
                         items.quantity = items.quantity+1
                     }else{
                         items.quantity = items.quantity-1
                     }
-                    
-//                    items.subCategoryPrice = items.subCategoryPrice * items.quantity
                 }
             }
         }catch{
