@@ -49,8 +49,8 @@ class SubCategoriesViewController: UIViewController,UITableViewDataSource,UITabl
         cell.delegate = self
         if let items = subCategories?[indexPath.row]{
             cell.subCategoryName.text = items.subCategoryName
-            cell.subCategoryPrice.text = String(items.subCategoryPrice)
-            cell.subcategoryQuantity.text = String(items.quantity)
+            cell.subCategoryPrice.text = "Rs - \(items.subCategoryPrice)"
+            cell.subcategoryQuantity.text = "qt: \(items.quantity)"
         }
         
         
